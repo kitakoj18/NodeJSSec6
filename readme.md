@@ -1,0 +1,1 @@
+This repository contains the code along and assignments I completed for Section 6 of the Udemy course, [NodeJS - The Complete Guide](https://www.udemy.com/course/nodejs-the-complete-guide/), which covers how to make dynamica HTML/content by using templating engines. The three templating engines that are covered include Pug/Jade, Handlebars, and EJS. 

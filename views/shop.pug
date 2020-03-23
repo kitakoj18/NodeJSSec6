@@ -1,0 +1,44 @@
+//- looks similar to regular html but this is pug syntax
+//- pug templating engine will compile code to normal html
+
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        //- pug syntax for retrieving value from object with key docTitle
+        title #{docTitle}
+        link(rel="stylesheet", href="/css/main.css")
+        link(rel="stylesheet", href="/css/product.css")
+    body
+        //- indentation matters for levels or tags nested in each other
+        //- before period is tag, after period is class
+        header.main-header
+            nav.main-header__nav
+                ul.main-header__item-list
+                    li.main-header__item
+                        //- parenthesis for attributes
+                        //- shop is text that will go inside anchor tag
+                        a.active(href="/") Shop
+                    li.main-header__item
+                        a(href="/admin/add-product") Add Product
+        main
+            if prods.length > 0
+                //- no specified tag defaults to div
+                .grid
+                    //- each loop:
+                    each product in prods
+                        //- multiple periods for multiple classes
+                        article.card.product-item
+                            header.card__header
+                                //- pushed object into prods array with title key
+                                h1.product__title #{product.title}
+                            .card__image
+                                img(src="https://cdn.pixabay.com/photo/2016/03/31/20/51/book-1296045_960_720.png", alt="A Book")
+                            .card__content    
+                                h2.product__price $19.99
+                                p.product__description A very interesting book about so many even more interesting things!
+                            .card__actions
+                                button.btn Add to Card
+            else   
+                h1 No Products
